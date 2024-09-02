@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>request sample codes</title>
+</head>
+<body>
+    <form id="main_form">
+        <div>ID : <input type="text" name="id"></div>
+        <br>
+        <div>NAME : <input type="text" name="name"></div>
+        <div><button type="button" id="submit_button"> 전송</button></div>
+
+        <br>
+        <div id="path_var_result_div"></div>
+        <div id="req_param_get_div"></div>
+        <div id="req_param_post_div"></div>
+        <div id="model_attr_div"></div>
+        <div id="req_body_div"></div>
+    </form>
+</body>
+</html>
+
+<script>
+    var button = document.querySelector("#submit_button");
+    button.onclick = async (e) => {
+        var id = document.querySelector('input[name="id"]').value;
+        var name = document.querySelector('input[name="name"]').value;
+
+        const postVal = {
+            'id' : id,
+            'name' : name
+        }
+
+        var pathVarResultPath = `/test/path/var/${name}/${id}`; // PathVariable
+        var reqParamGetPath = "/test/path/request/param" + `?id=${id}&name=${name}`; // RequestParam
+        var reqParamPostPath = "/test/path/request/param"; // RequestParam
+        var modelAttrPath = "/test/model/body/att/model"; // ModelAttribute
+        var reqBodyPath = "/test/model/body/req/body"; // RequestBody
+
+        var pathVarResponse = await fetch(pathVarResultPath); // get using path param
+        var pathVarResult = await pathVarResponse.text();
+        document.querySelector("#path_var_result_div").innerHTML = pathVarResult;
+
+        var reqParamGetResponse = await fetch(reqParamGetPath); // get using request param
+        var reqParamGetResult = await reqParamGetResponse.text();
+        document.querySelector("#req_param_get_div").innerHTML = reqParamGetResult;
+
+        await fetch(reqParamPostPath, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(postVal).toString()
+        }).then(response => {
+            if(response.ok){
+                return response.text();
+            }
+            else{
+                throw new Error('/request/form/json something wrong');
+            }
+        }).then(data => {
+            document.querySelector("#req_param_post_div").innerHTML = data;
+        }).then(error => {
+            if(error != null)
+                console.error(error)
+        });
+
+        // Send the POST request using fetch
+        await fetch(modelAttrPath, {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(postVal).toString()
+        }).then(response => {
+            if(response.ok){
+                return response.text()
+            }else{
+                throw new Error('Something Wrong...!')
+            }
+        }).then(data => {
+            document.querySelector("#model_attr_div").innerHTML = data;
+        }).catch(error => {
+            console.error('Occurring the Error : ', error)
+        })
+
+                // Send the POST request using fetch
+        await fetch(reqBodyPath, {
+            method: 'POST', // HTTP method
+            headers: {
+                'Content-Type': 'application/json'  // Set content type to JSON
+            },
+            body: JSON.stringify(postVal)  // Convert the data to a JSON string
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();  // Assuming the response is plain text
+            } else {
+                throw new Error('Something went wrong');
+            }
+        })
+        .then(data => {
+            document.querySelector("#req_body_div").innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
