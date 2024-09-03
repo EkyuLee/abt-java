@@ -9,4 +9,9 @@ public class MainController {
     public String index() {
         return "redirect:/index.html";
     }
+
+    @GetMapping("/go-post-page")
+    public String goPostPage() {
+        return "redirect:/post-page.html";
+    }
 }

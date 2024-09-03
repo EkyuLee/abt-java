@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 *  - 필드와 메서드를 상속받을 수 있도록 하는 추상 클래스나 상위 클래스를 정의
 * */
 @EntityListeners(AuditingEntityListener.class)
-public class TImestampEntity {
+public class TimestampEntity {
     @CreatedDate
     private LocalDateTime createdDate;
 

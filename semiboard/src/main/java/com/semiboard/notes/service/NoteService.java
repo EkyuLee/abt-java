@@ -4,7 +4,6 @@ import com.semiboard.notes.dtos.NoteRequestDto;
 import com.semiboard.notes.entities.NoteEntity;
 import com.semiboard.notes.repository.NoteRepository;
 
-
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

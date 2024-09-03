@@ -1,15 +1,14 @@
 package com.jtre.jpa_example.entity;
 
-import com.jtre.common_entity.TImestampEntity;
+import com.jtre.common_entity.TimestampEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
 @Entity
-@Table
-public class BoardEntity extends TImestampEntity {
+@NoArgsConstructor
+public class BoardEntity extends TimestampEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long board_idx;
@@ -31,6 +30,4 @@ public class BoardEntity extends TImestampEntity {
         this.board_title = boardDto.getBoard_title();
         this.board_content = boardDto.getBoard_content();
     }
-
-
 }
