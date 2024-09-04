@@ -1,6 +1,4 @@
-"# springboot" 
-스프링부트 참조코드 및 테스트 진행을 위한 repogitory 입니다.
-
+## 일자별 특이사항
 > 20240824 - [semiboard] JPA entity 구현 및 insert, select test in h2
   1. properties.yml
   2. member entity
@@ -17,6 +15,10 @@
 
 > 20240904 [jpa-tdd-redis-example]
   1. Making standard TDD.
+
+# --------------------------------------------------
+# --------------------------------------------------
+## 기능별 팁
 
 > about TDD
   1. 메소드별 간략한 설명
@@ -38,15 +40,15 @@
   - 클래스 호출을, new를 이용해서 호출하는것이 아닌, xml에 등록함으로써 사용할 수 있는것이다. 
   <예시>
   1. XML 등록
-    ```
+    ````
     <bean id="testService" class="com.demo.app.di.testService">
-    ```
+    ````
   
   2. Bean 어노테이션 이용 
     // @Bean
-    ```
+    ````
     @importResource(value{"**.xml"})
     public class test {
       public testService tsv(){return new testService();}
     }
-    ```
+    ````
