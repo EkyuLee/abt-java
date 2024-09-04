@@ -9,3 +9,11 @@
   1. template.hello.html
   2. source.hello.html
   3. Restconroller
+
+> 20240903
+  1. CREATE, INSERT, SELECT USING the JpaRepository
+  2. Caution about '@RequiredArgsConstructor' if you want to using without calling of construction, you must have using the final.
+  3. Have to check JpaRepository interfaces types.
+
+> 20240904
+  1. Making standard TDD.
