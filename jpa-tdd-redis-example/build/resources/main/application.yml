@@ -1,0 +1,47 @@
+## STEP-01 create application.yml
+
+server:
+  port: 80 #service tomcat number (service from tomcat)
+
+spring:
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    cache: false # default true, 개발시에는 false로 두는것이 좋음
+
+  #security: #spring security setting
+  #  user:
+  #    name: lek
+  #    password: 1q2w
+  datasource:
+    driver-class-name: org.h2.Driver #call h2 driver
+    url: 'jdbc:h2:mem:test' #memory H2 DB connect url
+    #url: 'jdbc:h2:~/test1' #embeded H2 DB connect url
+    username: user
+    password: 1
+
+  ### datasource:
+  ###   #url: 'jdbc:h2:mem:db;MODE=MYSQL' #memory H2 DB connect url
+  ###   #url: 'jdbc:h2:~/test1' #embeded H2 DB connect url
+  ###   driver-class-name: org.h2.Driver #call h2 driver
+  ###   url: 'jdbc:h2:mem:test
+  ###   username: sa
+  ###   password:
+
+  h2: #h2 console setting
+    console:
+      enabled: true #console enable stat true or false
+      path: /lek-h2-console #console path
+
+  jpa: #jpa setting
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true # query log format true or false
+        show_sql: true #query log show true or false
+    database-platform: org.hibernate.dialect.H2Dialect
+

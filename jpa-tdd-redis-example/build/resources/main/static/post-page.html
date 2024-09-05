@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div>
+    <div><input type="text" id="title" placeholder="title" ></div>
+    <div><textarea id="content" class="content" cols="30" rows="10" placeholder="content"></textarea></div>
+</div>
+    <div>
+        <button type="button" id="post_btn">전송</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var btn = document.querySelector("#post_btn");
+
+    function inputContent(){
+
+        let title = $('#title').val();
+        let content = $('#content').val();
+        let data = {'board_title' : title, 'board_content' : content};
+        console.log(data);
+        $.ajax({
+            type : 'POST',
+            url : '/input-board-data',
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success : function (response){
+                alert('저장완료');
+                window.location.href = '/';
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown){
+                console.log('Status : ' + textStatus);
+                console.log('Error : ' + errorThrown);
+            }
+        });
+    }
+
+    btn.onclick = (e) => {
+        inputContent();
+    }
+</script>

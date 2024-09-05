@@ -53,3 +53,39 @@
       public testService tsv(){return new testService();}
     }
     ````
+
+> How to install REDIS? (참조 : 내 블로그 - https://soft-tip.tistory.com/entry/REDIS-%EC%84%A4%EC%B9%98-%EB%B6%80%ED%84%B0-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95)
+  1. WSL2 설치 (window 환경일 경우)
+    참조 : https://learn.microsoft.com/en-us/windows/wsl/install
+    
+  2. REDIS 설치
+    참조 : https://redis.io/docs/latest/develop/connect/cli/
+    참조2 : https://github.com/microsoftarchive/redis/releases
+
+  3. REDIS CLI 활용
+    - PUB/SUB 
+      ```
+      $redis-cli PSUBSCRIBE '*' //read all of publish and subscribe
+      $redis-cli PUBLISH {channel-name} '{message}' // publish of message to channel-name
+      $redic-cli SUBSCRIBE {channel-name} //subscribe about channel-name
+      ```
+    - RDB 백업
+      ```
+      redis-cli --rdb /tmp/dump.rdb
+
+  4. 상세 내용은 블로그 참조
+   
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+## 용어 정리
+
+> 레이턴시 ? 
+  1. 레이턴시(latency)는 자극과 반응 사이의 시간이며, 더 일반적인 관점에서는 관찰되는 시스템에서의 어떠한 물리적 변화에 대한 원인과 결과 간의 지연 시간이다. (https://ko.wikipedia.org/wiki/%EB%A0%88%EC%9D%B4%ED%84%B4%EC%8B%9C)
+
+> TTY ? 
+  1. 유닉스 표준 입력에 연결된 터미널의 이름을 출력하는 명령어
+
+> redis sentinel?
+  1. 장애 발생시 운영 서비스에 영향이 없도록(고가용성) redis master monitoring 및 자동 장애 극복 조치 (Fail over) 해주는 서비스 이다.

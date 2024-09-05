@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div>HEADER <button type="button" id="written-button">글쓰기</button></div>
+    <div id="board_list_div_id">
+        <p>아래에 board data 가 append 됩니다.</p>
+    </div>
+</body>
+</html>
+
+<script>
+    // data get request
+    // if data is not empty
+    // get and showing in board_list_div_id
+
+    function getPostList(){
+        let boardListDiv = $('#board_list_div_id');
+        $.ajax({
+            type : 'GET',
+            url : '/get-board-list',
+            data : {},
+            success : function (response){
+                for(let i = 0; i < response.length; i++){
+                    let message = response[i];
+                    let title = message['board_title'];
+                    let content = message['board_content'];
+                    let result = `<p> title = ${title} , content = ${content} </p>`;
+                    boardListDiv.append(result);
+                }
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown){
+                console.log('Status : ' + textStatus);
+                console.log('Error : ' + errorThrown);
+            }
+        });
+    }
+    getPostList();
+
+    var writtenButton = document.querySelector("#written-button");
+    writtenButton.onclick = (e) => {
+       window.location.href = '/go-post-page';
+    }
+</script>

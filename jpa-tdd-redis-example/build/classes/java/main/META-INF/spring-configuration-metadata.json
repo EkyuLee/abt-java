@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "spring.redis.cluster",
+      "type": "com.jtre.ClusterConfigurationProperties",
+      "sourceType": "com.jtre.ClusterConfigurationProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
