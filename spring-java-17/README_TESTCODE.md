@@ -44,4 +44,19 @@
 6. JSONassert : JSON용 어설션 라이브러리
 7. JsonPath : JSON 데이터에서 특정 데이터를 선택하고 검색하기 위한 라이브러리
 
+## 05. TestAnnotation에 대한 설명
+> 1. @SpringBootTest
+> > - @SpringBootApplication 을 찾고, 그 클래스에 포함되어 있는 Bean을 찾은다음 테스트용 application context를 생성한다. 
+> 2. @AutoConfigureMockMvc
+> > - MockMvc를 생성하고 자동으로 구성한다. 어플리케이션을 서버에 배포하지 않고도 테스트용 MVC를 만들어 요청, 전송, 응답 기능을 제공하는 유틸리티 클래스 이다.
+> > - 컨트롤러를 테스트 할때 사용하는 클래스 이다.
+> 3. @BeforeEach, @AfterEach
+> > - @BeforeEach : 각 테스트가 실행 전에 실행 됨
+> > - @AfterEach : 각 테스트가 종료 되고 실행 됨
 
+
+## 06. Test시 lombok dependencies 추가하기
+> 1. compileOnly 'org.projectlombok:lombok' 
+> 2. anotationProcessor 'org.projectlombok:lombok' 
+> 3. tetCompileOnly 'org.projectlombok:lombok' 
+> 4. tesAnnotationProcessor 'org.projectlombok:lombok'
