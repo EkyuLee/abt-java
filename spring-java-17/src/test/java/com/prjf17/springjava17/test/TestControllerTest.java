@@ -46,7 +46,7 @@ class TestControllerTest {
     public void getAllMembers() throws Exception {
         //given : G - 멤버 저장
         final String url = "/test";
-        Member savedMember = memberRepository.save(new Member(4L, "abc"));
+        Member savedMember = memberRepository.save(new Member(1L, "abc"));
         
         //when - 멤버 리스트 조회
         final ResultActions result = mockMvc.perform(get(url) //1 - perform : 요청을 전송하는것.
