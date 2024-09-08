@@ -60,3 +60,7 @@
 > 2. anotationProcessor 'org.projectlombok:lombok' 
 > 3. tetCompileOnly 'org.projectlombok:lombok' 
 > 4. tesAnnotationProcessor 'org.projectlombok:lombok'
+
+
+## @AutoWired
+1. 필요한 의존객체 의 타입에 해당하는 Bean을 찾아서 주입한다. 

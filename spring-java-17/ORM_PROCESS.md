@@ -103,3 +103,13 @@ public class EntityManagerTest{
     - nullable : null 허용 여부 (false = 미허용)
     - unique : 컬럼의 유일한 값(unique), 미설정시 non unique
     - ColumnDefinition : 컬럼 정보 설정, default 값을 줄 수 있음
+   
+8. Builder Pattern
+   - entity에 사용시 개발자들이 직관적으로 파악을 하기위해 자주 사용하는 패턴이다. 
+```java
+    // 빌더패턴 미사용
+    new Member(1L, "abc");
+
+    // 빌더패턴 사용
+    Member.builder().name("abc");
+```

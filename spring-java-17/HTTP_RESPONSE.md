@@ -19,11 +19,11 @@
     
     }
 ```
-1. 200 OK - isOk()
-2. 201 Created - isCreated()
-3. 400 Bad Request - isBadRequest()
-4. 403 Forbidden - isForbidden()
-5. 404 Not Found - isNotFound()
+1. 200 OK - isOk() - 요청이 성공적으로 수행되었음.
+2. 201 Created - isCreated() - 요청이 성공적으로 수행되었고, 새로운 리소스가 추가 되었음.
+3. 400 Bad Request - isBadRequest() - 요청 값이 잘못되어 요청에 실패 하였음.
+4. 403 Forbidden - isForbidden() - 권한이 없어서 요청에 실패 하였음.
+5. 404 Not Found - isNotFound() - 요청 값으로 찾은 리소스가 없어서 요청에 실패 하였음.
 6. 400 번대 응답 코드 - is4xxClientError()
-7. 500 Internal Server Error - isInternalServerError()
+7. 500 Internal Server Error - isInternalServerError() - 서버상에 문제가 있어서 요청에 실패 하였음.
 8. 500 번대 응답 코드 - is5xxServerError()
