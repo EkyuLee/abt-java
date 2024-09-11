@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0a150e3-e7a0-4b35-9781-707dc8137638" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jtre/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jtre/ClusterConfigurationProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jtre/redis/RedisApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jtre/JpaTddRedisExampleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jtre/JpaTddRedisExampleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../semiboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../semiboard/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +237,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725261392667</updated>
       <workItem from="1725261393772" duration="2879000" />
-      <workItem from="1725265965041" duration="30461000" />
+      <workItem from="1725265965041" duration="31861000" />
     </task>
     <servers />
   </component>

@@ -19,7 +19,6 @@ public class BlogApiController {
 
     @PostMapping("/api/articles")
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request){ //DTO를 사용하여 객체 상태로 수신
-        System.out.println("hello~");
         Article savedArticle = blogService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedArticle); // STATUS에 HTTP 상태값을 추가 하고 body에 결과 값을 넣어서 return 한다.
     }

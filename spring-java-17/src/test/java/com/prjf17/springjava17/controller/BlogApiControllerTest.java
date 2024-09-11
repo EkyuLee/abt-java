@@ -32,8 +32,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest // 테스트용 어플리케이션 컨텍스트
 @AutoConfigureMockMvc // MockMvc 생성 및 자동 구성
 class BlogApiControllerTest {
-    @Autowired //@Autowired : dependency objective에 Bean을 찾아 기입한다.
-    protected MockMvc mockMvc;
+    @Autowired //@Autowired : dependency objective에 Bean을 찾아 자동으로 기입한다.
+    protected MockMvc mockMvc; // 서블릿 컨테이너나, 웹 서버를 띄우지 않고 테스트를 할 수 있게 도와줌.
 
     @Autowired
     protected ObjectMapper objectMapper; // 직렬화 및 역직렬화를 위한 클래스.
@@ -50,7 +50,7 @@ class BlogApiControllerTest {
         blogRepository.deleteAll(); // repository에 혹시 있는 내용을 미리 삭제한다.
     }
 
-    @DisplayName("addArticle: 블로그 글 추가에 성공한다. ")
+    @DisplayName("add article")
     @Test
     public void addArticle() throws Exception{
 
@@ -59,7 +59,7 @@ class BlogApiControllerTest {
         final String title = "title";
         final String content = "content";
         final AddArticleRequest userRequest = new AddArticleRequest(title, content); // 객체 생성
-        final String requestBody = objectMapper.writeValueAsString(userRequest); //객체를 JSON으로 직렬화 함.
+        final String requestBody = objectMapper.writeValueAsString(userRequest); //객체를 json 형태의 string으로 전환
 
         //when
         ResultActions result = mockMvc.perform(post(url) //post 로 요청 한다.
